@@ -8,7 +8,7 @@ DEFAULT_GIT_PASSWORD="admin1234"
 GIT_USERNAME=
 while [ -z $GIT_USERNAME ]
 do
-    echo -n 'Type in Git username? Default:' $DEFAULT_GIT_USERNAME ' on enter'
+    echo 'Type in Git username. Hit return for default value:' $DEFAULT_GIT_USERNAME
     read GIT_USERNAME
     GIT_USERNAME=${GIT_USERNAME:=$DEFAULT_GIT_USERNAME}
 done
@@ -17,16 +17,10 @@ done
 GIT_PASSWORD=
 while [ -z $GIT_PASSWORD ]
 do
-    echo -n 'Type in Git password? Default:' $DEFAULT_GIT_PASSWORD ' on enter'
+    echo 'Type in Git password. Hit return for default value:' $DEFAULT_GIT_PASSWORD
     read -s GIT_PASSWORD
     GIT_PASSWORD=${GIT_PASSWORD:=$DEFAULT_GIT_PASSWORD}
 done
-
-# - Ubuntu:
-sudo apt-get update
-sudo apt-get install default-jre -y
-sudo apt-get install default-jdk -y
-sudo update-alternatives --config java
 
 # - RHEL:
 #sudo yum install -y gcc-c++ make
@@ -35,12 +29,18 @@ sudo update-alternatives --config java
 #sudo yum install git -y
 #sudo yum install nodejs -y
 
-# - Install Apache -
+# - Ubuntu:
 sudo apt-get update
-sudo apt-get install apache2 -y
+sudo apt-get install default-jre -y
+sudo apt-get install default-jdk -y
+sudo update-alternatives --config java
 
 # - Install Git -
 sudo apt-get install git -y
+
+# - Install Apache -
+sudo apt-get update
+sudo apt-get install apache2 -y
 
 # - Install NodeJS -
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
@@ -49,10 +49,10 @@ sudo apt-get install nodejs-legacy -y
 sudo apt-get install npm -y
 
 # - Install Polymer CLI -
-sudo npm i -g polymer-cli
+sudo npm i polymer-cli -g
 
 # - Install Bower -
-sudo npm i -g bower
+sudo npm i bower -g
 
 # - Clone WSO2 auth api -
 cd /vagrant/projects
@@ -62,7 +62,7 @@ cd /vagrant/projects/nn-bancassurance-nodejs-proxy
 # - Run WSO2 auth api server in background -
 sudo chmod -R 777 ./
 sudo npm i
-nohup node api-proxy.js 2>&1 &
+#nohup node api-proxy.js 2>&1 &
 
 # - Clone frontend app -
 cd /vagrant/projects
@@ -81,6 +81,6 @@ cd /vagrant/projects
 sudo git clone https://$GIT_USERNAME:$GIT_PASSWORD@github.com/roygarnaat/nn-bancassurance-wso2am
 sudo chmod -R 777 /vagrant/projects/nn-bancassurance-wso2am
 
-# -
-cd /vagrant/projects/nn-bancassurance-wso2am/wso2am-2.1.0/bin
-export JAVA_HOME=/usr; sh wso2server.sh
+# - Run WSO2 ApiManager
+#cd /vagrant/projects/nn-bancassurance-wso2am/wso2am-2.1.0/bin
+#export JAVA_HOME=/usr; sh wso2server.sh

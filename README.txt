@@ -14,7 +14,18 @@
 
 ## Vagrant
 
-https://www.vagrantup.com/downloads.html
+1)
+    Download vagrant https://www.vagrantup.com/downloads.html
+
+2)
+    git clone https://github.com/roygarnaat/nnba-workstation-vm
+
+3)
+    cd nnba-workstation-vm
+    vagrant up
+    vagrant ssh
+    cd /vagrant/scripts
+    sh start-all.sh
 
 ## Ubuntu 16.04 desktop
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # -
-echo "127.0.0.1 localhost.localdomain localhost vagrant-VirtualBox 127.0.0.1 mydomain.loc" > /etc/hosts
+echo "127.0.0.1 localhost.localdomain localhost vagrant-VirtualBox 127.0.0.1 nnba.loc" > /etc/hosts
 
 # -
 sudo apt-get update -y
@@ -13,4 +13,4 @@ sudo find /var/log -name '*.gz' -delete
 
 # -
 cd /vagrant
-sh provision.sh
+(echo; echo;) | sh ./scripts/provision.sh
