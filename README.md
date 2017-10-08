@@ -1,7 +1,15 @@
 # NNBA
 
 This repository holds the code for creating and running a Virtual Machine containing all required repositories concerning the NNBA project. 
-This VM provides developers with an uniform development workstation. 
+This VM provides developers with an uniform development workstation.
+
+# Environment 
+
+Up until now this project has been developed and tested on: 
+
+- OS: MacOS Sierra 10.12.5
+- CPU: 2,8 GHz Intel Core I7
+- Memory: 16 GB 2133 MHz LPDDR3
 
 # Stack
 - Ubuntu 16.04 for Vagrant (https://app.vagrantup.com/box-cutter/boxes/ubuntu1604-desktop)
